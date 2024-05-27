@@ -1,10 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { Slot } from "expo-router";
+import { StyleSheet, Text } from "react-native";
 
 const RootLayout = () => {
   return (
-    <View>
-      <Text>RootLayout</Text>
-    </View>
+    <>
+      <Text>header</Text>
+      <Slot />
+      <Text>footer</Text>
+    </>
   );
 };
 
