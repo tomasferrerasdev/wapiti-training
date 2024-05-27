@@ -1,5 +1,5 @@
-import { Slot } from "expo-router";
-import { StyleSheet, Text } from "react-native";
+import { Slot } from 'expo-router';
+import { StyleSheet, Text } from 'react-native';
 
 const RootLayout = () => {
   return (
