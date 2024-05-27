@@ -1,5 +1,4 @@
-import { Slot, Stack } from 'expo-router';
-import { StyleSheet, Text } from 'react-native';
+import { Stack } from 'expo-router';
 
 const RootLayout = () => {
   return (
@@ -12,5 +11,3 @@ const RootLayout = () => {
 };
 
 export default RootLayout;
-
-const styles = StyleSheet.create({});
