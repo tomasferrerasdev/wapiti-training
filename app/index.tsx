@@ -8,7 +8,7 @@ interface Props {
 export default function App({ name }: Props) {
   return (
     <View style={styles.container}>
-      <Text>PIROCA</Text>
+      <Text>HELLO WAPITI</Text>
       <StatusBar style="auto" />
     </View>
   );
