@@ -1,19 +1,14 @@
-import {
-  Button,
-  Image,
-  ImageBackground,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { ImageBackground, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
-import images from '../constants/images';
 import CustomButton from '../components/CustomButton';
-import { router } from 'expo-router';
+import { Redirect, router } from 'expo-router';
 import Logo from '../components/Logo';
+import { useGlobalContext } from '../context/GlobalProvider';
 
 export default function App() {
+  const { isLogged, loading } = useGlobalContext();
+  if (!loading && isLogged) return <Redirect href="/home" />;
   return (
     <>
       <ImageBackground
