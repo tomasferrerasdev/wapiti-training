@@ -1,4 +1,11 @@
-import { Button, Image, ImageBackground, Text, View } from 'react-native';
+import {
+  Button,
+  Image,
+  ImageBackground,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { LinearGradient } from 'expo-linear-gradient';
 import images from '../constants/images';
@@ -16,38 +23,42 @@ export default function App() {
           colors={['transparent', 'rgba(0,0,0,0.4)']}
           className="flex-1"
         >
-          <SafeAreaView className="flex-1 justify-between px-4">
-            <View className="w-full items-center p-4">
-              <Image
-                source={images.logo}
-                width={155}
-                height={123}
-                className="w-[155px] h-[123px]"
-              />
-            </View>
-            <View className="flex-col gap-14">
-              <View className="flex-col gap-2">
-                <Text className="font-uberBold text-white text-[32px]">
-                  Discover what a Shooting Companion can do for You
-                </Text>
-                <Text className="font-uberMedium text-white text-[16px]">
-                  Unlock your full potential with Wapiti Training. Personalized
-                  guidance and real-time feedback.
-                </Text>
-              </View>
-              <View className="pb-10 px-2 flex flex-row items-center justify-between">
-                <View className="items-center gap-2 flex-row">
-                  <View className="w-[45px] h-[3px] bg-white rounded-full" />
-                  <View className="w-[45px] h-[3px] bg-gray rounded-full" />
-                  <View className="w-[45px] h-[3px] bg-gray rounded-full" />
+          <SafeAreaView className="h-full">
+            <ScrollView contentContainerStyle={{ height: '100%' }}>
+              <View className="justify-between px-4 h-full">
+                <View className="w-full items-center p-6">
+                  <Image
+                    source={images.logo}
+                    width={155}
+                    height={123}
+                    className="w-[155px] h-[123px]"
+                  />
                 </View>
-                <CustomButton
-                  text="Get started"
-                  handlePress={() => router.push('/sign-in')}
-                />
+                <View className="flex-col gap-14">
+                  <View className="flex-col gap-2">
+                    <Text className="font-uberBold text-white text-[32px]">
+                      Discover what a Shooting Companion can do for You
+                    </Text>
+                    <Text className="font-uberMedium text-white text-[16px]">
+                      Unlock your full potential with Wapiti Training.
+                      Personalized guidance and real-time feedback.
+                    </Text>
+                  </View>
+                  <View className="pb-10 px-2 flex flex-row items-center justify-between">
+                    <View className="items-center gap-2 flex-row">
+                      <View className="w-[45px] h-[3px] bg-white rounded-full" />
+                      <View className="w-[45px] h-[3px] bg-gray rounded-full" />
+                      <View className="w-[45px] h-[3px] bg-gray rounded-full" />
+                    </View>
+                    <CustomButton
+                      text="Get started"
+                      handlePress={() => router.push('/sign-in')}
+                    />
+                  </View>
+                </View>
               </View>
-            </View>
-            {/* <StatusBar backgroundColor="#000" style="light" /> */}
+              {/* <StatusBar backgroundColor="#000" style="light" /> */}
+            </ScrollView>
           </SafeAreaView>
         </LinearGradient>
       </ImageBackground>
