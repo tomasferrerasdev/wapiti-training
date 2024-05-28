@@ -1,22 +1,28 @@
-import { View, ScrollView, Text } from 'react-native';
+import { View, ScrollView, Text, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Logo from '../../components/Logo';
 import FormField from '../../components/FormField';
 import { useState } from 'react';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { createUser } from '../../lib/appwrite';
 
 const SignUp = () => {
   const [form, setForm] = useState({
-    userName: '',
+    username: '',
     email: '',
     password: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const onSubmit = () => {
-    createUser();
+  const onSubmit = async () => {
+    if (form.username === '' || form.email === '' || form.password === '') {
+      Alert.alert('Error', 'Please fill in all fields');
+    }
+
+    const { username, email, password } = form;
+    const res = await createUser({ username, email, password });
+    console.log(res);
   };
 
   return (
@@ -28,10 +34,10 @@ const SignUp = () => {
           </View>
           <FormField
             title={'Username'}
-            value={form.userName}
-            onChange={(e) => setForm({ ...form, userName: e })}
+            value={form.username}
+            onChange={(e) => setForm({ ...form, username: e })}
             customStyle="mt-7"
-            placeholder={'Email'}
+            placeholder={'Username'}
           />
           <FormField
             title={'Email'}

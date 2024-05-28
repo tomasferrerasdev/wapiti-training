@@ -29,7 +29,7 @@ const FormField = ({
           value={value}
           placeholder={placeholder}
           placeholderTextColor="#ADADAD"
-          onChange={onChange}
+          onChangeText={onChange}
           secureTextEntry={title === 'Password' && !showPassword}
         />
 
