@@ -20,9 +20,17 @@ const SignUp = () => {
       Alert.alert('Error', 'Please fill in all fields');
     }
 
-    const { username, email, password } = form;
-    const res = await createUser({ username, email, password });
-    console.log(res);
+    setIsSubmitting(true);
+    try {
+      const { username, email, password } = form;
+      const res = await createUser({ username, email, password });
+      //save on global state
+      router.replace('/home');
+    } catch (error) {
+      Alert.alert('Error', error.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
