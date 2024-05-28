@@ -11,6 +11,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import images from '../constants/images';
 import CustomButton from '../components/CustomButton';
 import { router } from 'expo-router';
+import Logo from '../components/Logo';
 
 export default function App() {
   return (
@@ -26,14 +27,7 @@ export default function App() {
           <SafeAreaView className="h-full">
             <ScrollView contentContainerStyle={{ height: '100%' }}>
               <View className="justify-between px-4 h-full">
-                <View className="w-full items-center p-6">
-                  <Image
-                    source={images.logo}
-                    width={155}
-                    height={123}
-                    className="w-[155px] h-[123px]"
-                  />
-                </View>
+                <Logo color="accent" />
                 <View className="flex-col gap-14">
                   <View className="flex-col gap-2">
                     <Text className="font-uberBold text-white text-[32px]">
@@ -47,8 +41,8 @@ export default function App() {
                   <View className="pb-10 px-2 flex flex-row items-center justify-between">
                     <View className="items-center gap-2 flex-row">
                       <View className="w-[45px] h-[3px] bg-white rounded-full" />
-                      <View className="w-[45px] h-[3px] bg-gray rounded-full" />
-                      <View className="w-[45px] h-[3px] bg-gray rounded-full" />
+                      <View className="w-[45px] h-[3px] bg-wapitiGray rounded-full" />
+                      <View className="w-[45px] h-[3px] bg-wapitiGray rounded-full" />
                     </View>
                     <CustomButton
                       text="Get started"
