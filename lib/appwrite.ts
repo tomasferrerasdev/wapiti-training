@@ -87,3 +87,16 @@ export const getCurrentUser = async () => {
     console.log(error);
   }
 };
+
+export const getAllDrills = async () => {
+  try {
+    const drills = await databases.listDocuments(
+      config.databaseId,
+      config.drillCollectionId
+    );
+
+    return drills;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
