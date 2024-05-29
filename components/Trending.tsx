@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import images from '../constants/images';
-
+import { ResizeMode, Video } from 'expo-av';
 interface TrendingItemProps {
   activeItem: any;
   drill: any;
@@ -46,7 +46,13 @@ const TrendingItem = ({ activeItem, drill }: TrendingItemProps) => {
       animation={activeItem === drill.$id ? zoomIn : zoomOut}
     >
       {play ? (
-        <Text>playing</Text>
+        <Video
+          source={{ uri: drill.video }}
+          className="w-52 h-72 rounded-[33px] mt-3 bg-white/10"
+          resizeMode={ResizeMode.CONTAIN}
+          useNativeControls
+          shouldPlay
+        />
       ) : (
         <TouchableOpacity
           className="relative justify-center items-center"
