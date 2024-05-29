@@ -1,6 +1,7 @@
 import { View, Text, Image, Touchable, TouchableOpacity } from 'react-native';
 import images from '../constants/images';
 import { useState } from 'react';
+import { ResizeMode, Video } from 'expo-av';
 
 interface VideoCardProps {
   drill: any;
@@ -39,7 +40,13 @@ const VideoCard = ({ drill }: VideoCardProps) => {
         </View>
       </View>
       {play ? (
-        <Text>playing</Text>
+        <Video
+          source={{ uri: video }}
+          className="w-full h-60 rounded-xl mt-3"
+          resizeMode={ResizeMode.CONTAIN}
+          useNativeControls
+          shouldPlay
+        />
       ) : (
         <TouchableOpacity
           onPress={() => setPlay(true)}

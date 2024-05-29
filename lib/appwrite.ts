@@ -100,3 +100,16 @@ export const getAllDrills = async () => {
     throw new Error(error);
   }
 };
+
+export const getLatestDrills = async () => {
+  try {
+    const drills = await databases.listDocuments(
+      config.databaseId,
+      config.drillCollectionId
+    );
+
+    return drills;
+  } catch (error) {
+    throw new Error(error);
+  }
+};

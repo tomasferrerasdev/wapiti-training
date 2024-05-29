@@ -5,12 +5,13 @@ import SearchInput from '../../components/SearchInput';
 import Trending from '../../components/Trending';
 import EmptyState from '../../components/EmptyState';
 import { useState } from 'react';
-import { getAllDrills } from '../../lib/appwrite';
+import { getAllDrills, getLatestDrills } from '../../lib/appwrite';
 import { useAppwrite } from '../../lib/useAppwrite';
 import VideoCard from '../../components/VideoCard';
 
 const Home = () => {
   const { data: drills, refetch } = useAppwrite(getAllDrills);
+  const { data: trendingDrills } = useAppwrite(getLatestDrills);
   const [refresing, setRefresing] = useState(false);
 
   const onRefresh = async () => {
@@ -48,7 +49,7 @@ const Home = () => {
               <Text className="font-uberMedium text-gray-600 text-xl mb-3">
                 Trending drills
               </Text>
-              <Trending posts={[{ id: 1 }, { id: 2 }, { id: 3 }] ?? []} />
+              <Trending drills={trendingDrills.documents ?? []} />
             </View>
           </View>
         )}
